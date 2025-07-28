@@ -198,7 +198,7 @@ def get_system_info():
     try:
         with open("/etc/hostname", "r") as file:
             machine_name = file.read().strip()
-    except FileNotFoundError:
+    except  (FileNotFoundError, PermissionError):
         machine_name = "Unknown"  # Fallback in case the file is not found
 
     # Get the current time as a struct_time object
